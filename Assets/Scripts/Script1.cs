@@ -6,7 +6,7 @@ public class Script1 : MonoBehaviour
 {
     public void Start()
     {
-        Debug.Log("Script1 test");
+        print("Script1 test");
     }
 
 }
