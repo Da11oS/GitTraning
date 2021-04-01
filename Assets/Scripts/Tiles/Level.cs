@@ -10,7 +10,7 @@ public class Level : MonoBehaviour
 
     void Start()
     {
-        if(Instance != null)
+        if (Instance != null)
         {
             Destroy(gameObject);
         }
@@ -21,9 +21,4 @@ public class Level : MonoBehaviour
         CurrentTile.Enter();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
 }

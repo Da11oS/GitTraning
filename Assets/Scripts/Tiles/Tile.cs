@@ -4,13 +4,12 @@ using UnityEngine;
 
 public class Tile : MonoBehaviour
 {
-    public GameObject Pass1;
-    public GameObject Pass2;
+    public List<Pass> Passages;
     public bool IsGoalAchived;
-    
     public void Enter()
     {
-
+        FindObjectOfType<Camera>().transform.position = transform.position;
+        Level.Instance.CurrentTile = this;
     }
     public void Exit()
     {
