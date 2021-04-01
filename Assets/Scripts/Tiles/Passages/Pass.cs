@@ -11,7 +11,9 @@ abstract public class Pass : MonoBehaviour
     {
         if (collision.gameObject.tag == "Player" && Level.Instance.CurrentTile.IsGoalAchived)
         {
+
             PassTo.Enter();
+            Level.Instance.CurrentTile.Exit();
             PlayAnimation();
         }
     }
