@@ -4,10 +4,6 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
-    public float MoveSpeed;
-    public int PositionOfPatrol;
-    public Transform point;
-
     // Start is called before the first frame update
     void Start()
     {
