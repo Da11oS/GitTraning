@@ -4,20 +4,41 @@ using UnityEngine;
 
 public class Tile : MonoBehaviour
 {
-    public List<Pass> Passages;
+    public Pass Exit;
+    public InnerPass Entrance;
+    public Tile NextTile;
+    public Tile PastTile;
+    public TilePulls Pull;
     public Borders Borders;
     public bool IsGoalAchived;
+    public int ID;
+
     private void Awake()
     {
-        GetComponentInChildren<Borders>();
+        Borders = GetComponentInChildren<Borders>();
+        Entrance = GetComponentInChildren<InnerPass>();
+        Exit = GetComponentInChildren<Pass>();
+    }
+    public void Start()
+    {
+        print("Player.Transform.position = Entrance.transform.position");
     }
     public void Enter()
     {
-        FindObjectOfType<Camera>().transform.position = transform.position;
-        Level.Instance.CurrentTile = this;
+        Level.Instance.ToBlackout();
+        Level.Instance.SetCameraPosition(this);
     }
-    public void Exit()
+    public void SetPastTile(Tile tile)
     {
-        gameObject.SetActive(false);
+        PastTile = tile;
     }
+    public void SetNextTile(Tile tile)
+    {
+        NextTile = tile;
+    }
+    public void SetPosition(Vector3 position)
+    {
+        transform.position = position;
+    }
+
 }

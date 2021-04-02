@@ -2,12 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Borders : MonoBehaviour
+public class InnerPass : MonoBehaviour
 {
-    public GameObject LeftBorder;
-    public GameObject RightBorder;
-    public GameObject UpperBorder;
-    public GameObject BottomBorder;
+    // Start is called before the first frame update
     void Start()
     {
         

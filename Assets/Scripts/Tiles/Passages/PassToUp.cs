@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PassToUp : Pass
 {
-    protected override void PlayAnimation()
+    protected override void PlayAnimations()
     {
         print("Animation up");
     }
