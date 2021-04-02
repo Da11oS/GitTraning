@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 2377140556974174633}
   - component: {fileID: 7683516935872391845}
   - component: {fileID: 9118945060552242614}
+  - component: {fileID: 530289897533047581}
   m_Layer: 0
   m_Name: InnerPass
   m_TagString: Untagged
@@ -95,6 +96,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bcdf2380cc608fb478a06bfd81edc9a5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  NextTile: {fileID: 0}
+--- !u!70 &530289897533047581
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3289039399042597458}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_Size: {x: 1, y: 2}
+  m_Direction: 0
 --- !u!1 &7118963335368092060
 GameObject:
   m_ObjectHideFlags: 0
@@ -217,6 +235,7 @@ GameObject:
   - component: {fileID: 7118963335690357331}
   - component: {fileID: 7118963335690357332}
   - component: {fileID: 7118963335690357333}
+  - component: {fileID: 9198571179729557758}
   m_Layer: 0
   m_Name: ExitPass
   m_TagString: Untagged
@@ -301,6 +320,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 93151450a4a233742abf4cce9dd9ea4d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  NextTile: {fileID: 0}
+--- !u!70 &9198571179729557758
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7118963335690357330}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_Size: {x: 1, y: 2}
+  m_Direction: 0
 --- !u!1 &7118963336093800899
 GameObject:
   m_ObjectHideFlags: 0
@@ -515,7 +551,7 @@ MonoBehaviour:
   Entrance: {fileID: 9118945060552242614}
   NextTile: {fileID: 0}
   PastTile: {fileID: 0}
-  Borders: {fileID: 0}
   Pull: {fileID: 11400000, guid: 17c5cf3b83d7f1f469c6511a0a8c544c, type: 2}
+  Borders: {fileID: 0}
   IsGoalAchived: 0
   ID: 1

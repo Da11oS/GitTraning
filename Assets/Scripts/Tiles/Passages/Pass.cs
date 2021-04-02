@@ -4,38 +4,37 @@ using UnityEngine;
 
 abstract public class Pass : MonoBehaviour
 {
-    public TilePulls Pull;
-    public Tile NextTile;
-    private Tile ParentTile;
-    private bool isGoalAchivedInLasFrame;
+    protected Tile ParentTile;
+
     abstract protected void PlayAnimations();
     public void Start()
     {
-        isGoalAchivedInLasFrame = Level.Instance.CurrentTile.IsGoalAchived;
         ParentTile = GetComponentInParent<Tile>();
     }
-    public void Update()
-    {
-        if (Level.Instance.CurrentTile.IsGoalAchived )
-        {
-            if(Level.Instance.CurrentTile.NextTile == null)
-            {
-                Level.Instance.Instantiate();
-            }
+    //public void Update()
+    //{
+    //    if (Level.Instance.CurrentTile.IsGoalAchived )
+    //    {
+    //        if(Level.Instance.CurrentTile.NextTile == null)
+    //        {
+    //            Level.Instance.Instantiate();
+    //        }
 
-            Level.Instance.CurrentTile.IsGoalAchived = false;
-        }
-        isGoalAchivedInLasFrame = Level.Instance.CurrentTile.IsGoalAchived;
+    //        Level.Instance.CurrentTile.IsGoalAchived = false;
+    //    }
+    //    isGoalAchivedInLasFrame = Level.Instance.CurrentTile.IsGoalAchived;
+    //}
+    public void OnMouseDown()
+    {
+        SwitchTile(gameObject);
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.tag == "Player" && Level.Instance.CurrentTile.IsGoalAchived)
+        if (collision.gameObject.tag == "Player" && ParentTile.IsGoalAchived)
         {
-            if (Level.Instance.CurrentTile.NextTile == null)
-            {
-                Level.Instance.Instantiate();
-            }
-
+            SwitchTile(collision.gameObject);
         }
     }
+    abstract protected void SwitchTile(GameObject triger);
+
 }

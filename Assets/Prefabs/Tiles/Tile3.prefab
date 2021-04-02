@@ -132,8 +132,8 @@ MonoBehaviour:
   Entrance: {fileID: 0}
   NextTile: {fileID: 0}
   PastTile: {fileID: 0}
-  Borders: {fileID: 0}
   Pull: {fileID: 11400000, guid: 888ce625d0b288d4b9af4ee67aef832f, type: 2}
+  Borders: {fileID: 0}
   IsGoalAchived: 0
   ID: 3
 --- !u!1 &1283368078977607878
@@ -198,6 +198,7 @@ GameObject:
   - component: {fileID: 4605277704592550541}
   - component: {fileID: 5411283670861180059}
   - component: {fileID: 7083882928629713083}
+  - component: {fileID: 7920475786631742521}
   m_Layer: 0
   m_Name: ExitPass
   m_TagString: Untagged
@@ -282,6 +283,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 93151450a4a233742abf4cce9dd9ea4d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  NextTile: {fileID: 0}
+--- !u!70 &7920475786631742521
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3186754655054717502}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_Size: {x: 1, y: 2}
+  m_Direction: 0
 --- !u!1 &4058083765485204625
 GameObject:
   m_ObjectHideFlags: 0
@@ -375,6 +393,7 @@ GameObject:
   - component: {fileID: 4348650221212462390}
   - component: {fileID: 8494270284841478976}
   - component: {fileID: 4186812051968582216}
+  - component: {fileID: 4728810353730302351}
   m_Layer: 0
   m_Name: InnerPass
   m_TagString: Untagged
@@ -459,6 +478,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bcdf2380cc608fb478a06bfd81edc9a5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  NextTile: {fileID: 0}
+--- !u!70 &4728810353730302351
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6419170568339402642}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_Size: {x: 1, y: 2}
+  m_Direction: 0
 --- !u!1 &6587232844383539545
 GameObject:
   m_ObjectHideFlags: 0

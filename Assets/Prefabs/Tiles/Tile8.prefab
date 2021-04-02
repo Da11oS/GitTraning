@@ -93,6 +93,7 @@ GameObject:
   - component: {fileID: 2488082272093346080}
   - component: {fileID: 2147822738591848724}
   - component: {fileID: 4023217676930159594}
+  - component: {fileID: 4627352992625065332}
   m_Layer: 0
   m_Name: ExitPass
   m_TagString: Untagged
@@ -177,6 +178,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 93151450a4a233742abf4cce9dd9ea4d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  NextTile: {fileID: 0}
+--- !u!70 &4627352992625065332
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3029503602927087843}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_Size: {x: 1, y: 2}
+  m_Direction: 0
 --- !u!1 &3355806013881193909
 GameObject:
   m_ObjectHideFlags: 0
@@ -188,6 +206,7 @@ GameObject:
   - component: {fileID: 3275067539010443028}
   - component: {fileID: 2392008973839337811}
   - component: {fileID: 3998077300014935571}
+  - component: {fileID: 3645611733024620197}
   m_Layer: 0
   m_Name: InnerPass
   m_TagString: Untagged
@@ -272,6 +291,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bcdf2380cc608fb478a06bfd81edc9a5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  NextTile: {fileID: 0}
+--- !u!70 &3645611733024620197
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3355806013881193909}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_Size: {x: 1, y: 2}
+  m_Direction: 0
 --- !u!1 &3458021891886178730
 GameObject:
   m_ObjectHideFlags: 0
@@ -455,8 +491,8 @@ MonoBehaviour:
   Entrance: {fileID: 3998077300014935571}
   NextTile: {fileID: 0}
   PastTile: {fileID: 0}
-  Borders: {fileID: 0}
   Pull: {fileID: 11400000, guid: 505940dbbde8f444593e8d3b628d3f6b, type: 2}
+  Borders: {fileID: 0}
   IsGoalAchived: 0
   ID: 8
 --- !u!1 &6159770770441021141

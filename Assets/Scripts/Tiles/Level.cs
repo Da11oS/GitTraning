@@ -8,12 +8,13 @@ public class Level : MonoBehaviour
     public TilesGenerator Generator;
     [HideInInspector]
     public Animation BlackoutAnimation;
-    static public Level Instance;
-    public static int TileCount;
-    private Camera _camera;
     public int MaxTileCount;
+    public static int TileCount;
+    static public Level Instance;
+
     [SerializeField]
     private GameObject _blackoutPanel;
+    private Camera _camera;
     public void Awake()
     {
         BlackoutAnimation = _blackoutPanel.GetComponent<Animation>();
@@ -30,8 +31,6 @@ public class Level : MonoBehaviour
     void Start()
     {
         TileCount = 1;
-
-
         //Player.Transform.position = CurrentTile.InnerPass.transform.position;
     }
     public void ToBlackout()
@@ -40,8 +39,6 @@ public class Level : MonoBehaviour
     }
     public void Instantiate()
     {
-
-
         if (TileCount < MaxTileCount)
         {
             TileCount++;
@@ -53,8 +50,10 @@ public class Level : MonoBehaviour
         }
         CurrentTile.Enter();
     }
-    public void SetCameraPosition(Tile tile)
+    public void SetCameraPosition()
     {
-        _camera.transform.position = tile.transform.position;
+        Vector3 position = CurrentTile.transform.position;
+        position.z = -40;
+        _camera.transform.position = position;
     }
 }

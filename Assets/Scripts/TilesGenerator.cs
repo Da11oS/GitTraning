@@ -18,7 +18,7 @@ public class TilesGenerator:MonoBehaviour
         _level.CurrentTile = Instantiate(CommonTiles[index], _level.transform).GetComponent<Tile>();
         UsedTiles.Add(_level.CurrentTile);
         _level.CurrentTile.transform.position = _level.transform.position;
-        Destroy(_level.CurrentTile.PastTile.gameObject);
+        Destroy(_level.CurrentTile.Entrance.gameObject);
         CommonTiles.RemoveAt(index);
         Destroy(_level.CurrentTile.Entrance);
 
@@ -42,7 +42,7 @@ public class TilesGenerator:MonoBehaviour
                 Tile pastTile = _level.CurrentTile;
                 _level.CurrentTile = Instantiate(currentTile.Pull.Tiles[index], _level.transform).GetComponent<Tile>();
                 UsedTiles.Add(_level.CurrentTile);
-                _level.CurrentTile.SetPastTile(UsedTiles[UsedTiles.Count - 1]);
+                _level.CurrentTile.SetPastTile(pastTile);
                 CommonTiles.Remove(currentTile.Pull.Tiles[index]);
                 pastTile.NextTile = _level.CurrentTile;
                 SetPosition(pastTile.transform.position, _level.CurrentTile);

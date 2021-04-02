@@ -2,17 +2,19 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class InnerPass : MonoBehaviour
+public class InnerPass : Pass
 {
-    // Start is called before the first frame update
-    void Start()
+    protected override void PlayAnimations()
     {
-        
+        throw new System.NotImplementedException();
     }
-
-    // Update is called once per frame
-    void Update()
+    override protected void SwitchTile(GameObject triger)
     {
-        
+
+        if (ParentTile.PastTile != null)
+        {
+            ParentTile.PastTile.Enter();
+        }
+        //SetPlayerPostition
     }
 }

@@ -92,6 +92,7 @@ GameObject:
   - component: {fileID: 1316712058588651714}
   - component: {fileID: 1660120342058640382}
   - component: {fileID: 8467766230953706119}
+  - component: {fileID: 8134894346596365555}
   m_Layer: 0
   m_Name: InnerPass
   m_TagString: Untagged
@@ -176,6 +177,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bcdf2380cc608fb478a06bfd81edc9a5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  NextTile: {fileID: 0}
+--- !u!70 &8134894346596365555
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1878799563899514735}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_Size: {x: 1, y: 2}
+  m_Direction: 0
 --- !u!1 &2186615478914173494
 GameObject:
   m_ObjectHideFlags: 0
@@ -420,10 +438,10 @@ MonoBehaviour:
   Entrance: {fileID: 0}
   NextTile: {fileID: 0}
   PastTile: {fileID: 0}
-  Borders: {fileID: 0}
   Pull: {fileID: 11400000, guid: 5b782b4556251444ea03589aa7a10c0d, type: 2}
+  Borders: {fileID: 0}
   IsGoalAchived: 0
-  ID: 1
+  ID: 2
 --- !u!1 &6983799002771544575
 GameObject:
   m_ObjectHideFlags: 0
@@ -435,6 +453,7 @@ GameObject:
   - component: {fileID: 1283318210339357749}
   - component: {fileID: 6251211064549296977}
   - component: {fileID: 3301040811165642304}
+  - component: {fileID: 2922858446020575515}
   m_Layer: 0
   m_Name: ExitPass
   m_TagString: Untagged
@@ -519,3 +538,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 93151450a4a233742abf4cce9dd9ea4d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  NextTile: {fileID: 0}
+--- !u!70 &2922858446020575515
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6983799002771544575}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_Size: {x: 1, y: 2}
+  m_Direction: 0

@@ -153,6 +153,7 @@ GameObject:
   - component: {fileID: 1512640031832672481}
   - component: {fileID: 6759233333679021048}
   - component: {fileID: 6069965159555528769}
+  - component: {fileID: 126447469557018045}
   m_Layer: 0
   m_Name: InnerPass
   m_TagString: Untagged
@@ -237,6 +238,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bcdf2380cc608fb478a06bfd81edc9a5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!70 &126447469557018045
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3961539966207026093}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_Size: {x: 1, y: 2}
+  m_Direction: 0
 --- !u!1 &6802297970939463348
 GameObject:
   m_ObjectHideFlags: 0
@@ -248,6 +265,7 @@ GameObject:
   - component: {fileID: 1340994292494663557}
   - component: {fileID: 3106308783267475472}
   - component: {fileID: 1649216888093631243}
+  - component: {fileID: 1259009649386564421}
   m_Layer: 0
   m_Name: Tile5
   m_TagString: Untagged
@@ -339,10 +357,26 @@ MonoBehaviour:
   Entrance: {fileID: 0}
   NextTile: {fileID: 0}
   PastTile: {fileID: 0}
-  Borders: {fileID: 0}
   Pull: {fileID: 11400000, guid: c894dbfd7cf82fa40bfb7d4bfdd1be0a, type: 2}
+  Borders: {fileID: 0}
   IsGoalAchived: 0
   ID: 5
+--- !u!70 &1259009649386564421
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6802297970939463348}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_Size: {x: 38.399998, y: 21.599998}
+  m_Direction: 0
 --- !u!1 &6886916773737788823
 GameObject:
   m_ObjectHideFlags: 0
@@ -435,6 +469,7 @@ GameObject:
   - component: {fileID: 3689326864588537330}
   - component: {fileID: 5470878499613814537}
   - component: {fileID: 4696295169568671529}
+  - component: {fileID: 2138972084956911940}
   m_Layer: 0
   m_Name: ExitPass
   m_TagString: Untagged
@@ -519,3 +554,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 93151450a4a233742abf4cce9dd9ea4d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!70 &2138972084956911940
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8721016569985886631}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_Size: {x: 1, y: 2}
+  m_Direction: 0

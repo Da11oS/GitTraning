@@ -4,11 +4,14 @@ using UnityEngine;
 
 public class Tile : MonoBehaviour
 {
+    [HideInInspector]
     public Pass Exit;
+    [HideInInspector]
     public InnerPass Entrance;
     public Tile NextTile;
     public Tile PastTile;
     public TilePulls Pull;
+    [HideInInspector]
     public Borders Borders;
     public bool IsGoalAchived;
     public int ID;
@@ -26,7 +29,8 @@ public class Tile : MonoBehaviour
     public void Enter()
     {
         Level.Instance.ToBlackout();
-        Level.Instance.SetCameraPosition(this);
+        Level.Instance.CurrentTile = this;
+        StartCoroutine(SetCameraPosition());
     }
     public void SetPastTile(Tile tile)
     {
@@ -39,6 +43,18 @@ public class Tile : MonoBehaviour
     public void SetPosition(Vector3 position)
     {
         transform.position = position;
+    }
+    private IEnumerator SetCameraPosition()
+    {
+        int i = 0;
+        do
+        { 
+            i++;
+            yield return new WaitForSeconds(1f);
+        } while (i < 0);
+        print("Switch pos");
+        Level.Instance.SetCameraPosition();
+
     }
 
 }
