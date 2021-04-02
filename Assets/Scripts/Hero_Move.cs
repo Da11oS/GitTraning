@@ -26,11 +26,12 @@ public class Hero_Move : MonoBehaviour
     private void Update()
     {
         OnGroundCheck();
+        JumpLogic(); // реализует прыжок 
     }
     void FixedUpdate()
     {
         MovementLogic(); //реализует перемещение по оси х, а также ускорение при нажатии левого shift
-        JumpLogic(); // реализует прыжок 
+
     }
 
     private void MovementLogic()
