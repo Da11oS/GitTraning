@@ -9,7 +9,7 @@ public class Enemy : MonoBehaviour
     public Transform Point;
     bool MovingRight;
 
-    public float HP = 100;
+    public float HP = 10;
 
     Transform player;
     public float stoppingDistance;
