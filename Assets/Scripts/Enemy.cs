@@ -4,14 +4,14 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
-    public float MoveSpeed;
+   /* public float MoveSpeed;
     public int PositionOfPatrol;
     public Transform Point;
-    bool MovingRight;
+    bool MovingRight;*/
 
     public float HP = 100;
 
-    Transform player;
+   /* Transform player;
     public float stoppingDistance;
 
     // Start is called before the first frame update
@@ -60,5 +60,5 @@ public class Enemy : MonoBehaviour
     void GoBack()
     {
 
-    }
+    }*/
 }
