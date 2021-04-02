@@ -26,9 +26,7 @@ public class Enemy : MonoBehaviour
         if(Vector2.Distance(transform.position, Point.position) < PositionOfPatrol)
         {
             Chill();
-        }
-
-        
+        }        
     }
 
     void Chill()
