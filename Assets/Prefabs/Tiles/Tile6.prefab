@@ -268,7 +268,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bcdf2380cc608fb478a06bfd81edc9a5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  NextTile: {fileID: 0}
 --- !u!70 &1676299612901849869
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -432,7 +431,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 93151450a4a233742abf4cce9dd9ea4d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  NextTile: {fileID: 0}
 --- !u!70 &1950527586243690283
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -524,7 +522,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 03411ea0a0a6f6b4ba63ec345822db00, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 015875d0fda2c1b4e9260353e0ef7d3d, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
