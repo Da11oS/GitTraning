@@ -16,7 +16,7 @@ public class Hero_attack : MonoBehaviour
 		{
 			if (hit.GetComponent<Enemy>())
 			{
-				hit.GetComponent<Enemy>().HP -= damage;
+				hit.GetComponent<Enemy>().GetDamage(damage);
 			}
 		}
 	}
