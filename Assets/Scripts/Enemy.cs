@@ -9,7 +9,7 @@ public class Enemy : MonoBehaviour
     public Transform Point;
     bool MovingRight;
 
-    public int HP = 100;
+    public float HP = 100;
 
     Transform player;
     public float stoppingDistance;
@@ -23,24 +23,24 @@ public class Enemy : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Vector2.Distance(transform.position, Point.position) < PositionOfPatrol)
+        if (Vector2.Distance(transform.position, Point.position) < PositionOfPatrol)
         {
             Chill();
-        }        
+        }
     }
 
     void Chill()
     {
-        if(transform.position.x > Point.position.x + PositionOfPatrol)
+        if (transform.position.x > Point.position.x + PositionOfPatrol)
         {
             MovingRight = false;
         }
-        else if(transform.position.x < Point.position.x + PositionOfPatrol)
+        else if (transform.position.x < Point.position.x + PositionOfPatrol)
         {
             MovingRight = true;
         }
 
-        if(MovingRight)
+        if (MovingRight)
         {
             transform.position = new Vector2(transform.position.x + MoveSpeed * Time.deltaTime, transform.position.y);
         }
