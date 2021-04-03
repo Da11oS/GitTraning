@@ -2,17 +2,19 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+[RequireComponent(typeof(CharacterReaction))]
 public class InteractableObject : MonoBehaviour,IObject
 {
     public RectMenu MenuPrefab;
     [HideInInspector]
     public Collider2D Collider;
+    public List<AssetItem> Items;
+    public bool IsActive;
     [SerializeField]
     protected CharacterReaction _reactions;
-    public List<AssetItem> Items;
     protected Inventory _invetory => Inventory.Instance;
-    private RectMenu _menu;
     protected DialogPanel _dialogPanel;
+    private RectMenu _menu;
     private void Awake()
     {
         Collider = GetComponent<Collider2D>();
@@ -21,7 +23,7 @@ public class InteractableObject : MonoBehaviour,IObject
     virtual public void Look()
     {
         //Наверное нужно, что - то сказать
-        _reactions.Reaction(_reactions.LookingPhrase);
+       // _reactions.Reaction(_reactions.LookingPhrase);
     }
     virtual public void Interact()
     {
@@ -29,7 +31,11 @@ public class InteractableObject : MonoBehaviour,IObject
         //Наверное нужно, что - то сказать
     }
 
-    private void OnMouseDown()
+    protected void OnMouseDown()
+    {
+        EnableRectMenu();
+    }
+    virtual protected void EnableRectMenu()
     {
         _menu = Instantiate(MenuPrefab, transform.position, MenuPrefab.transform.rotation);
         _menu.Parent = this;
