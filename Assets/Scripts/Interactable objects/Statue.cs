@@ -7,6 +7,7 @@ public class Statue : Lever
 {
     [SerializeField][TextArea]
     private string _LongReaction;
+    private Transform RayRanderar;
     override protected void EnableRectMenu()
     {
         //if()
@@ -18,6 +19,9 @@ public class Statue : Lever
     {
         OnActive?.Invoke();
     }
+    private void RayCast()
+    {
 
+    }
 
 }
