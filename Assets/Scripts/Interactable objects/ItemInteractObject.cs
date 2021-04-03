@@ -4,10 +4,17 @@ using UnityEngine;
 
 public class ItemInteractObject : InteractableObject
 {
-    public bool IsWorking;
+
     override public void Look()
     {
-        base.Look();
+        if(!IsActive)
+        {
+            _reactions.Reaction(_reactions.LookingPhraseBefore);
+        }
+        else
+        {
+            _reactions.Reaction(_reactions.LookingPhraseAfter);
+        }
     }
     override public void Interact()
     {
@@ -19,10 +26,18 @@ public class ItemInteractObject : InteractableObject
             else
             {
                 isInteracted = false;
-                _reactions.Reaction(_reactions.NonInteractionPhrase);
+                _reactions.Reaction(_reactions.InteractionPhrase);
             }
         }
-        IsWorking = isInteracted;
+        IsActive = isInteracted;
+        if(IsActive)
+        {
+            _reactions.Reaction(_reactions.InteractionPhraseAfter);
+        }
+        else
+        {
+            _reactions.Reaction(_reactions.InteractionPhraseBefore);
+        }
     }
 
 }

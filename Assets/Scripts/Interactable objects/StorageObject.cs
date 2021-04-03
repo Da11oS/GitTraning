@@ -7,13 +7,33 @@ public class StorageObject : InteractableObject
 
     public override void Look()
     {
-        base.Look();
+        if (Items.Count > 0)
+        {
+            _reactions.Reaction(_reactions.LookingPhraseBefore);
+        }
+        else
+        {
+            _reactions.Reaction(_reactions.LookingPhraseAfter);
+        }
     }
     public override void Interact()
     {
-        foreach (var item in Items)
+        if (Items.Count > 0)
         {
-            _invetory.AddItem(item);
+            for(int i = 0; i < Items.Count; i++)
+            {
+                _invetory.AddItem(Items[i]);
+                Items.Remove(Items[i]);
+                _reactions.Reaction(_reactions.InteractionPhrase);
+            }
+        }
+        if(Items.Count > 0)
+        {
+            _reactions.Reaction(_reactions.InteractionPhraseAfter);
+        }
+        else
+        {
+            _reactions.Reaction(_reactions.InteractionPhraseBefore);
         }
     }
 }

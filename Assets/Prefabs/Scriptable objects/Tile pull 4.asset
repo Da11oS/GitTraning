@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: Tile pull 4
   m_EditorClassIdentifier: 
   Tiles:
-  - {fileID: 8679826838298387924, guid: d4f03b064ef32334eba073e99966aedd, type: 3}
+  - {fileID: 2731822592827884738, guid: 20897cb9f85984e4c8a0491650e508d0, type: 3}
   - {fileID: 4902200613513213334, guid: 3c7d5b300a0678642888347c1ac91191, type: 3}
