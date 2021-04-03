@@ -9,7 +9,7 @@ public class Enemy : MonoBehaviour
     public Transform Point;
     bool MovingRight;*/
 
-    public float HP = 100;
+    public int HP = 100;
 
    /* Transform player;
     public float stoppingDistance;
@@ -26,9 +26,7 @@ public class Enemy : MonoBehaviour
         if(Vector2.Distance(transform.position, Point.position) < PositionOfPatrol)
         {
             Chill();
-        }
-
-        
+        }        
     }
 
     void Chill()
