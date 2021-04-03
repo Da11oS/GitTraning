@@ -5,38 +5,30 @@ using UnityEngine;
 public class InteractableObject : MonoBehaviour,IObject
 {
     public RectMenu MenuPrefab;
+    [HideInInspector]
     public Collider2D Collider;
-    private RectMenu _menu;
     [TextArea]
-    public string Monolog;
+    public List<string> TakingPhrases;
+    [TextArea]
+    public List<string> LookingPhrases;
+    public List<AssetItem> Items;
+    protected Inventory _invetory => Inventory.Instance;
+    private RectMenu _menu;
     private void Awake()
     {
         Collider = GetComponent<Collider2D>();
     }
     virtual public void Look()
     {
-        print("Look in " + transform.name);
+        ////Наверное нужно, что - то сказать
     }
     virtual public void Interact()
     {
-        print("Interact whith " + transform.name);
+
+        //Наверное нужно, что - то сказать
     }
 
 
-    //private void Update()
-    //{
-    //    float distance = GetToCursorDistance();
-    //    if (distance < 7)
-    //    {
-
-    //    }
-    //    print(GetToCursorDistance());
-    //}
-    //private float GetToCursorDistance()
-    //{
-    //    Vector2 MousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-    //    return Vector2.Distance(MousePosition, transform.position);
-    //}
     private void OnMouseDown()
     {
         _menu = Instantiate(MenuPrefab, transform.position, MenuPrefab.transform.rotation);

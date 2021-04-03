@@ -11,7 +11,10 @@ public class StorageObject : InteractableObject
     }
     public override void Interact()
     {
-        print("Take items by " + transform.name);
+        foreach (var item in Items)
+        {
+            _invetory.AddItem(item);
+        }
     }
 }
 

@@ -29,10 +29,7 @@ public class RectMenu : MonoBehaviour
     private void Update()
     {
         if (GetToCursorDistance() > 5)
-        {
             Destroy(gameObject);
-
-        }
 
     }
     private void OnDestroy()
