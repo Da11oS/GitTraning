@@ -5,9 +5,9 @@ using UnityEngine.Events;
 public class Lever : InteractableObject
 {
     [SerializeField]
-    private UnityEvent OnActive;
+    protected UnityEvent OnActive;
     [SerializeField]
-    private List<GameObject> _targets;
+    protected List<GameObject> _targets;
     public override void Look()
     {
         base.Look();
@@ -38,6 +38,7 @@ public class Lever : InteractableObject
     private void EnabledObject(GameObject gameObject)
     {
         gameObject.SetActive(true);
+
         var animation = gameObject.GetComponent<Animation>();
         animation.Play();
 
@@ -46,6 +47,17 @@ public class Lever : InteractableObject
     {
         var animation = gameObject.GetComponent<Animation>();
         animation.Play();
-        gameObject.SetActive(false);
+
+        DestroyTarge(gameObject, animation.clip.length);
+    }
+    private IEnumerator DestroyTarge(GameObject gameObject, float time)
+    {
+        int i = 0;
+        do
+        {
+            i++;
+            yield return new WaitForSeconds(time);
+        } while (i < 2);
+        Destroy(gameObject);
     }
 }

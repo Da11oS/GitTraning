@@ -31,7 +31,11 @@ public class InteractableObject : MonoBehaviour,IObject
         //Наверное нужно, что - то сказать
     }
 
-    private void OnMouseDown()
+    protected void OnMouseDown()
+    {
+        EnableRectMenu();
+    }
+    virtual protected void EnableRectMenu()
     {
         _menu = Instantiate(MenuPrefab, transform.position, MenuPrefab.transform.rotation);
         _menu.Parent = this;

@@ -37,19 +37,18 @@ public class CharacterReaction : MonoBehaviour
     {
         int i = 0;
         DialogPanel.Instance.Active(true);
+        if(text.Length < 1)
+        {
+            text = "    ";
+        }
         do
         {
             DialogPanel.Instance.Text.text += text[i++];
-
             yield return new WaitForSeconds(0.05f);
         } while (i < text.Length);
 
         do
         {
-            if (Input.GetMouseButtonDown(0))
-            {
-                break;
-            }
             yield return new WaitForSeconds(4);
         } while (false);
         DialogPanel.Instance.Active(false);

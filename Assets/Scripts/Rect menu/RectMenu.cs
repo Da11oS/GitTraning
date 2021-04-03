@@ -27,6 +27,10 @@ public class RectMenu : MonoBehaviour
         {
             Inventory.Instance.gameObject.SetActive(true);
         }
+        if(Parent.IsActive || Parent is StorageObject || Parent is Lever)
+        {
+            LookButton.gameObject.SetActive(false);
+        }
         EmergensAnimation.Play();
         FexedPosition();
     }
@@ -52,8 +56,19 @@ public class RectMenu : MonoBehaviour
     {
         Vector2 cameraPosition = FindObjectOfType<Camera>().transform.position;
         Vector2 directionToCamera = cameraPosition - (Vector2)transform.position;
+        Vector2 position = transform.position;
+        Vector2 screenSize = Camera.main.ScreenToWorldPoint(new Vector2(Screen.width, Screen.height));
         directionToCamera /= directionToCamera.magnitude;
         transform.position += (Vector3)directionToCamera * 3;
+        //if(Mathf.Abs(cameraPosition.x - transform.position.x) < 10)
+        //{
 
+        //    position.x += directionToCamera.x * 10;
+        //}
+        //if(Mathf.Abs(cameraPosition.y - transform.position.y) < 10)
+        //{
+        //    position.y += directionToCamera.y * 10; 
+        //}
+        //transform.position = position;
     }
 }
