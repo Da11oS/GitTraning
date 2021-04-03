@@ -26,12 +26,22 @@ public class RectMenu : MonoBehaviour
         EmergensAnimation.Play();
     }
 
-    private void OnMouseExit()
-    {
-        Destroy(gameObject);
-    }
     private void Update()
     {
+        if (GetToCursorDistance() > 5)
+        {
+            Destroy(gameObject);
 
+        }
+
+    }
+    private void OnDestroy()
+    {
+        Parent.Collider.enabled = true;
+    }
+    private float GetToCursorDistance()
+    {
+        Vector2 MousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        return Vector2.Distance(MousePosition, transform.position);
     }
 }

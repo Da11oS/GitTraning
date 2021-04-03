@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class StorageObject : InteractableObject
 {
+
     public override void Look()
     {
         base.Look();
