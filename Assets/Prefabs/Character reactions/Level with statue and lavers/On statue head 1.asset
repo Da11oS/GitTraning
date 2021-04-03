@@ -9,9 +9,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7065983f0a73a6741b09b19635ce3d58, type: 3}
-  m_Name: Tile pull 4
+  m_Script: {fileID: 11500000, guid: 9397d10c0f6da434cbf56818ac901f57, type: 3}
+  m_Name: On statue head 1
   m_EditorClassIdentifier: 
-  Tiles:
-  - {fileID: 2731822592827884738, guid: 20897cb9f85984e4c8a0491650e508d0, type: 3}
-  - {fileID: 4902200613513213334, guid: 3c7d5b300a0678642888347c1ac91191, type: 3}
+  LookingPhrasesBefore: []
+  LookingPhrasesAfter: []
+  AfterInteractionPhrases: []
+  InteractionPhrases: []
+  BeforeInteractionPhrases: []

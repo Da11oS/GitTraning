@@ -22,6 +22,7 @@ public class DialogPanel : MonoBehaviour
         Text = GetComponentInChildren<Text>();
         _image = GetComponent<Image>();
         Active(false);
+        
     }
     private void OnEnable()
     {
@@ -33,6 +34,7 @@ public class DialogPanel : MonoBehaviour
     }
     public void Active(bool enable)
     {
+        Text.text = "";
         _image.enabled = enable;
         Text.enabled = enable;
     }
