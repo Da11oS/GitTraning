@@ -14,7 +14,11 @@ public class InnerPass : Pass
         if (ParentTile.PastTile != null)
         {
             ParentTile.PastTile.Enter();
+            SetPosition();
         }
-        //SetPlayerPostition
+    }
+    override public void SetPosition()
+    {
+        StartCoroutine(SetPlayerPosition(Level.Instance.CurrentTile.Exit.transform.position));
     }
 }

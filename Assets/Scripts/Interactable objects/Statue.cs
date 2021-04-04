@@ -19,9 +19,5 @@ public class Statue : Lever
     {
         OnActive?.Invoke();
     }
-    private void RayCast()
-    {
-
-    }
 
 }

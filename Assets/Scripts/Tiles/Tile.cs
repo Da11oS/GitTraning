@@ -5,7 +5,7 @@ using UnityEngine;
 public class Tile : MonoBehaviour
 {
     [HideInInspector]
-    public Pass Exit;
+    public OuterPass Exit;
     [HideInInspector]
     public InnerPass Entrance;
     public Tile NextTile;
@@ -15,17 +15,15 @@ public class Tile : MonoBehaviour
     public Borders Borders;
     public bool IsGoalAchived;
     public int ID;
-
+    private Hero _player;
     private void Awake()
     {
         Borders = GetComponentInChildren<Borders>();
         Entrance = GetComponentInChildren<InnerPass>();
-        Exit = GetComponentInChildren<Pass>();
+        Exit = GetComponentInChildren<OuterPass>();
+        _player = FindObjectOfType<Hero>();
     }
-    public void Start()
-    {
-        print("Player.Transform.position = Entrance.transform.position");
-    }
+
     public void Enter()
     {
         Level.Instance.ToBlackout();
@@ -52,9 +50,16 @@ public class Tile : MonoBehaviour
             i++;
             yield return new WaitForSeconds(1f);
         } while (i < 0);
-        print("Switch pos");
         Level.Instance.SetCameraPosition();
 
     }
-
+ 
+    public void SetIsActive(bool value)
+    {
+        if (value)
+        {
+            Exit.Animation.Play();
+        }
+        IsGoalAchived = value;
+    }
 }
