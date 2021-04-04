@@ -4,8 +4,8 @@ using UnityEngine;
 
                public enum States
 {
-    walk,
-    chill
+    chill,
+    walk
 };
 public class Hero_Move : MonoBehaviour
 {
@@ -52,7 +52,7 @@ public class Hero_Move : MonoBehaviour
     void FixedUpdate()
     {
         MovementLogic(); //реализует перемещение по оси х, а также ускорение при нажатии левого shift
-
+      
     }
 
     private void MovementLogic()
@@ -65,6 +65,7 @@ public class Hero_Move : MonoBehaviour
             Speed = 12f;
         }
         _rb.velocity = new Vector2(moveVector.x * Speed, _rb.velocity.y);
+        if (IsGrounded) State = States.chill;
     }
 
     private void JumpLogic()
