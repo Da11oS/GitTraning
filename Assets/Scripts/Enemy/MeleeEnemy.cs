@@ -14,6 +14,8 @@ public class MeleeEnemy : Enemy
 
     [SerializeField] private float _durationJump = 1;
     [SerializeField] private float _currentHigthJump = 0;
+
+    private float _timer = 0;
     void Start()
     {
         _moveSpeed += Random.Range(0.2f, 1.5f);
@@ -22,9 +24,10 @@ public class MeleeEnemy : Enemy
         _forceJump += Random.Range(0.2f, 1.1f);
         _reloadAttackTime *= Level / 2;
         transform.localScale = Vector3.one * Random.Range(Level - 0.2f, Level + 0.2f);
+        
     }
 
-    void FixedUpdate()
+    void Update()
     {
         ActionEnemy();
         if (_isDefense || (_helth < _maxHelth * 0.2 && _distanceEnemyToPlayer < _rangeAttack * 2))
@@ -37,11 +40,24 @@ public class MeleeEnemy : Enemy
                 _moveSpeed *= -1;
             }
         }
-        if (Random.Range(0,10) > 8 && _rb.velocity.y == 0)
+        if (Random.Range(0, 10) > 8 && _rb.velocity.y == 0)
         {
             _timerJump = 0;
             Jump();
         }
+    }
+    private void FixedUpdate()
+    {
+        _timer += Time.deltaTime;
+        if (_timer > 0.01f)
+        {
+            _spriteRenderer.color = new Color(Random.Range(0, 1f), Random.Range(0, 1f), Random.Range(0, 1f));
+            _timer = 0;
+        }
+        var rotation = transform.eulerAngles;
+        rotation.z += 30;
+        transform.eulerAngles = rotation;
+        transform.rotation = Quaternion.Euler(transform.eulerAngles);
     }
 
     private void Jump()
@@ -54,6 +70,6 @@ public class MeleeEnemy : Enemy
     private void Defence()
     {
         _moveSpeed *= -1;
-        _helth += Time.deltaTime * _maxHelth * 0.02f; 
+        _helth += Time.deltaTime * _maxHelth * 0.02f;
     }
 }

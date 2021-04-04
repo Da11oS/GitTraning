@@ -41,11 +41,7 @@ public class EnemySpawn : MonoBehaviour
             SpawnEnemy();
             _timeNow = DateTime.Now;
         }
-    }
-
-    private void FixedUpdate()
-    {
-        
+        ReturnEnemyOnSpawn();
     }
 
     private void FillTheArray(int arrayCount, GameObject prefab)
@@ -79,25 +75,27 @@ public class EnemySpawn : MonoBehaviour
         }
     }
 
-    public void ReturnEnemyOnSpawn(string deadEnemy)
+    public void ReturnEnemyOnSpawn()
     {
-
-        for (int i = 0; i < _readyEnemy.Length; i++)
+        MeleeEnemy _melee;
+        RangeEnemy _range;
+        for (int i = 0; i < _enemiesArray.Count; i++)
         {
-            string test = _enemiesArray[i].name + "(Clone)";
-            if (deadEnemy == test)
+            
+            if (_enemiesArray[i].TryGetComponent<MeleeEnemy>(out _melee))
             {
-                
-                _readyEnemy[i] = true;
-                _enemiesArray[i].transform.position = transform.position;
-                _enemiesArray[i].TryGetComponent<RangeEnemy>(out _gameObjectRangeEnemy);
-                if(_gameObjectRangeEnemy != null)
+                if(_enemiesArray[i].GetComponent<MeleeEnemy>()._helth < 0)
                 {
-                    _enemiesArray[i].GetComponent<RangeEnemy>()._helth = _enemiesArray[i].GetComponent<RangeEnemy>()._maxHelth;
-                }
-                else
-                {
+                    _enemiesArray[i].transform.position = SpawnPoint.position;
                     _enemiesArray[i].GetComponent<MeleeEnemy>()._helth = _enemiesArray[i].GetComponent<MeleeEnemy>()._maxHelth;
+                }
+            }
+            else if (_enemiesArray[i].TryGetComponent<RangeEnemy>(out _range))
+            {
+                if (_range._helth < 0)
+                {
+                    _enemiesArray[i].transform.position = SpawnPoint.position;
+                    _range._helth = _range._maxHelth;
                 }
             }
         }

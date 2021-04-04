@@ -67,6 +67,7 @@ public class RangeEnemy : Enemy
             _spitForward.Normalize();
             _spitForward *= _rangeAttack *-1;
             _spit.GetComponent<Rigidbody2D>().velocity = _spitForward;
+            _spit.GetComponent<Spit>().ResetTimer();
             _spit.GetComponent<Spit>().Damage = _damage;
             _timer += 0;
         }

@@ -37,12 +37,16 @@ public class Spit : MonoBehaviour
         ReturnSpit();
     }
 
+    public void ResetTimer()
+    {
+        _timer = 0;
+    }
     private void ReturnSpit()
     {
         _spitArray = _pointSpawn.gameObject.GetComponent<SpitSpawn>()._spitArray;
         for (int i = 0; i < _spitArray.Length; i++)
         {
-            if (gameObject.name == _spitArray[i].name)
+            if (gameObject == _spitArray[i])
             {
                 _pointSpawn.gameObject.GetComponent<SpitSpawn>()._readySpit[i] = true;
             }

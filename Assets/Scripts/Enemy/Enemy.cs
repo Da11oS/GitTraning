@@ -15,6 +15,7 @@ abstract public class Enemy : MonoBehaviour
     [SerializeField] protected string _stateAnimatorAttack;
     [SerializeField] protected string _stateAnimatorStay;
     [SerializeField] protected string _stateAnimatorMove;
+    [SerializeField] protected SpriteRenderer _spriteRenderer;
 
     protected float _unicK; //Коеффициент разноса величин характеристик персонажа 
     protected float _distanceEnemyToPlayer;
@@ -49,6 +50,15 @@ abstract public class Enemy : MonoBehaviour
                 Attack();
             }
         }
+
+        if (_rb.velocity.x > 0)
+        {
+            transform.rotation = Quaternion.Euler(0, 180, 0);
+        }
+        else if (_rb.velocity.x < 0)
+        {
+            transform.rotation = Quaternion.Euler(0, 0, 0);
+        }
     }
 
     protected virtual void Move()
@@ -57,12 +67,17 @@ abstract public class Enemy : MonoBehaviour
         if (Mathf.Abs(_distanceEnemyToPlayer) > _rangeAttack)
         {
             _animator.Play(_stateAnimatorMove);
-            _rb.velocity = new Vector2((Mathf.Abs(_distanceEnemyToPlayer) / _distanceEnemyToPlayer) * _moveSpeed * -1, _rb.velocity.y);
+            
+            if(transform.position.y < _player.position.y + 1)
+            {
+                _rb.velocity = new Vector2((Mathf.Abs(_distanceEnemyToPlayer) / _distanceEnemyToPlayer) * _moveSpeed * -1, _rb.velocity.y);
+            }
         }
         else
         {
             _rb.velocity = new Vector2(0, _rb.velocity.y);
         }
+
     }
 
     virtual protected void Attack()
@@ -81,8 +96,6 @@ abstract public class Enemy : MonoBehaviour
             {
                 Debug.Log("--" + elem);
             }
-            Destroy(gameObject);
-            //_enemySpawn.GetComponent<EnemySpawn>().ReturnEnemyOnSpawn(gameObject.name);
         }
     }
 

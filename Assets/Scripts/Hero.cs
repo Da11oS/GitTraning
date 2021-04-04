@@ -15,7 +15,7 @@ public class Hero : MonoBehaviour
         }
     }
     private void YouAreDead()
-    {
+    { 
         _restart.SetActive(true);
 
         Destroy(gameObject);

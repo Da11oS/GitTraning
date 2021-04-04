@@ -2538,18 +2538,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Hero
       objectReference: {fileID: 0}
-    - target: {fileID: 5336605966048752653, guid: 39cfdfdde04fac14aa53167a6c70b78a, type: 3}
-      propertyPath: punchRadius
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 5336605966048752657, guid: 39cfdfdde04fac14aa53167a6c70b78a, type: 3}
-      propertyPath: _exit
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 5336605966048752657, guid: 39cfdfdde04fac14aa53167a6c70b78a, type: 3}
-      propertyPath: _helth
-      value: 30
-      objectReference: {fileID: 0}
     - target: {fileID: 5336605966048752657, guid: 39cfdfdde04fac14aa53167a6c70b78a, type: 3}
       propertyPath: _restart
       value: 
@@ -2557,6 +2545,10 @@ PrefabInstance:
     - target: {fileID: 5336605966048752662, guid: 39cfdfdde04fac14aa53167a6c70b78a, type: 3}
       propertyPath: m_RootOrder
       value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5336605966048752662, guid: 39cfdfdde04fac14aa53167a6c70b78a, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5336605966048752662, guid: 39cfdfdde04fac14aa53167a6c70b78a, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2596,14 +2588,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5336605966048752662, guid: 39cfdfdde04fac14aa53167a6c70b78a, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5336605966917026740, guid: 39cfdfdde04fac14aa53167a6c70b78a, type: 3}
-      propertyPath: m_Radius
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 5336605966917026740, guid: 39cfdfdde04fac14aa53167a6c70b78a, type: 3}
-      propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -2722,11 +2706,11 @@ PrefabInstance:
       objectReference: {fileID: 461621038}
     - target: {fileID: 7500263620421193454, guid: 46c1d772c7843d44ea75ba5b01b64812, type: 3}
       propertyPath: _maxEnemy
-      value: 10
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 7500263620421193454, guid: 46c1d772c7843d44ea75ba5b01b64812, type: 3}
       propertyPath: MeleeEnemyCount
-      value: 5
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 7500263620421193454, guid: 46c1d772c7843d44ea75ba5b01b64812, type: 3}
       propertyPath: RangeEnemyCount
