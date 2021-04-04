@@ -6,6 +6,7 @@ public class Hero_attack : MonoBehaviour
 {
     public Transform punch;
     public float punchRadius;
+	public Animator animAttack;
 
 
 	public static void Action(Vector2 point, float radius, int layerMask, float damage)
@@ -25,7 +26,8 @@ public class Hero_attack : MonoBehaviour
     {
 		if (Input.GetMouseButtonDown(0))
 		{
-			Hero_attack.Action(punch.position, punchRadius, 7, 12);
+			animAttack.SetBool("Attack", true);
+			Hero_attack.Action(punch.position, punchRadius, 7, 3);
 		}
 	}
 }

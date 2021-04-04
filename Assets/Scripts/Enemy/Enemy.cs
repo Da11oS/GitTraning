@@ -77,7 +77,12 @@ abstract public class Enemy : MonoBehaviour
         _helth -= damage;
         if (_helth < 0)
         {
-            _enemySpawn.GetComponent<EnemySpawn>().ReturnEnemyOnSpawn(gameObject.name);
+            foreach (var elem in _enemySpawn.GetComponents<EnemySpawn>())
+            {
+                Debug.Log("--" + elem);
+            }
+            Destroy(gameObject);
+            //_enemySpawn.GetComponent<EnemySpawn>().ReturnEnemyOnSpawn(gameObject.name);
         }
     }
 

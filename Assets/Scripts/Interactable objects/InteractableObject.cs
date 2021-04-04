@@ -10,6 +10,7 @@ public class InteractableObject : MonoBehaviour,IObject
     public Collider2D Collider;
     public List<AssetItem> Items;
     public bool IsActive;
+
     protected CharacterReaction _reactions;
     protected Inventory _invetory => Inventory.Instance;
     protected DialogPanel _dialogPanel;
@@ -31,17 +32,18 @@ public class InteractableObject : MonoBehaviour,IObject
     }
     virtual public void Look()
     {
-        //Наверное нужно, что - то сказать
+        //ГЌГ ГўГҐГ°Г­Г®ГҐ Г­ГіГ¦Г­Г®, Г·ГІГ® - ГІГ® Г±ГЄГ Г§Г ГІГј
        // _reactions.Reaction(_reactions.LookingPhrase);
     }
     virtual public void Interact()
     {
 
-        //Наверное нужно, что - то сказать
+        //ГЌГ ГўГҐГ°Г­Г®ГҐ Г­ГіГ¦Г­Г®, Г·ГІГ® - ГІГ® Г±ГЄГ Г§Г ГІГј
     }
 
     protected void OnMouseDown()
     {
+
         _ray = GetToPlayerPlayerRaycast();
         if (IsOnPlayer() && _ray.distance < toPlayerDistanceLimit)
         {
@@ -49,8 +51,9 @@ public class InteractableObject : MonoBehaviour,IObject
         }
         else
         {
-            _reactions.Reaction("Не могу. Слишком далеко. ");
+            _reactions.Reaction("ГЌГҐ Г¬Г®ГЈГі. Г‘Г«ГЁГёГЄГ®Г¬ Г¤Г Г«ГҐГЄГ®. ");
         }
+
     }
     virtual protected void EnableRectMenu()
     {

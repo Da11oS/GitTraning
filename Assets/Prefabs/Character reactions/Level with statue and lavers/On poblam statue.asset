@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9397d10c0f6da434cbf56818ac901f57, type: 3}
   m_Name: On poblam statue
   m_EditorClassIdentifier: 
+
   LookingPhrasesBefore:
   - "\u041A\u0442\u043E-\u0442\u043E \u044F\u0432\u043D\u043E \u043D\u0435 \u043B\u044E\u0431\u0438\u043B
     \u044D\u0442\u0443 \u0441\u0442\u0430\u0442\u0443\u044E."
@@ -26,3 +27,4 @@ MonoBehaviour:
   - "\u041D\u0435 \u0442\u0435\u0440\u044F\u0439 \u0433\u043E\u043B\u043E\u0432\u044B."
   BeforeInteractionPhrases:
   - "\u041D\u0435 \u043C\u043E\u0433\u0443."
+

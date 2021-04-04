@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Data;
+using System;
 
 public class EnemySpawn : MonoBehaviour
 {
@@ -17,10 +19,12 @@ public class EnemySpawn : MonoBehaviour
     [SerializeField] private int _maxEnemy = 10;
 
     private int _currentSpawns = 0;
+    DateTime _timeNow;
 
     // Start is called before the first frame update
     private void Start()
     {
+        _timeNow = DateTime.Now;
         _readyEnemy = new bool[MeleeEnemyCount + RangeEnemyCount];
         for (int i = 0; i < _readyEnemy.Length; i++)
         {
@@ -30,12 +34,18 @@ public class EnemySpawn : MonoBehaviour
         FillTheArray(RangeEnemyCount, RangeEnemyPrefab);
     }
 
-    private void FixedUpdate()
+    private void Update()
     {
-        if (_currentSpawns < _maxEnemy)
+        if (_currentSpawns < _maxEnemy && GetTotalSeconds(DateTime.Now) - GetTotalSeconds(_timeNow) > 1.4)
         {
             SpawnEnemy();
+            _timeNow = DateTime.Now;
         }
+    }
+
+    private void FixedUpdate()
+    {
+        
     }
 
     private void FillTheArray(int arrayCount, GameObject prefab)
@@ -57,27 +67,27 @@ public class EnemySpawn : MonoBehaviour
 
     private void SpawnEnemy()
     {
-        for (int i =0; i < _readyEnemy.Length; i++)
+        for (int i = 0; i < _readyEnemy.Length; i++)
         {
             if (_readyEnemy[i])
             {
-                if(Random.Range(0, 100) > 90)
-                {
-                    _enemiesArray[i].transform.position = _enemySpawnPoints[Random.Range(0, _enemySpawnPoints.Count)].transform.position;
-                    _readyEnemy[i] = false; 
-                    _currentSpawns++;
-                    return;
-                }
+                _enemiesArray[i].transform.position = _enemySpawnPoints[UnityEngine.Random.Range(0, _enemySpawnPoints.Count)].transform.position;
+                _readyEnemy[i] = false;
+                _currentSpawns++;
+                return;
             }
         }
     }
 
     public void ReturnEnemyOnSpawn(string deadEnemy)
     {
+
         for (int i = 0; i < _readyEnemy.Length; i++)
         {
-            if (deadEnemy == _enemiesArray[i].name)
+            string test = _enemiesArray[i].name + "(Clone)";
+            if (deadEnemy == test)
             {
+                
                 _readyEnemy[i] = true;
                 _enemiesArray[i].transform.position = transform.position;
                 _enemiesArray[i].TryGetComponent<RangeEnemy>(out _gameObjectRangeEnemy);
@@ -91,5 +101,11 @@ public class EnemySpawn : MonoBehaviour
                 }
             }
         }
+    }
+
+    private float GetTotalSeconds(DateTime t)
+    {
+        return t.Second + t.Minute * 60 + t.Hour * 3600;
+
     }
 }

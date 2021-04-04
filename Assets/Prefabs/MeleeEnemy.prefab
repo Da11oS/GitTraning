@@ -177,15 +177,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _moveSpeed: 1
-  _helth: 5
+  _helth: 9
   _maxHelth: 0
   _damage: 10
-  _rangeAttack: 1
+  _rangeAttack: 0.6
   _reloadAttackTime: 3
   _stateAnimatorAttack: fas
   _stateAnimatorStay: fasd
   _stateAnimatorMove: ds
-  _player: {fileID: 5336605966048752662, guid: 39cfdfdde04fac14aa53167a6c70b78a, type: 3}
+  _player: {fileID: 0}
   _rb: {fileID: 4357979852768904531}
   _animator: {fileID: 4357979852768904532}
   _enemySpawn: {fileID: 7500263620421193455, guid: 46c1d772c7843d44ea75ba5b01b64812, type: 3}

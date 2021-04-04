@@ -19,7 +19,7 @@ public class MeleeEnemy : Enemy
         _moveSpeed += Random.Range(0.2f, 1.5f);
         _helth *= Level;
         _damage *= Level;
-        _forceJump += Random.Range(0.2f, 1.5f);
+        _forceJump += Random.Range(0.2f, 1.1f);
         _reloadAttackTime *= Level / 2;
         transform.localScale = Vector3.one * Random.Range(Level - 0.2f, Level + 0.2f);
     }

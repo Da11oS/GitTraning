@@ -2,9 +2,23 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+               public enum States
+{
+    walk,
+    chill
+};
 public class Hero_Move : MonoBehaviour
 {
+
+    private States State
+    {
+        get { return (States)_anim.GetInteger("State"); }
+        set {  _anim.SetInteger(("State"), (int)value); }
+
+    }
     private Rigidbody2D _rb;
+    private Animator _anim;
+    private SpriteRenderer sprite;
 
     // переменные, реализующие  передвижение персонажа по оси х и y
     private float JumpForce = 7f;
@@ -21,10 +35,17 @@ public class Hero_Move : MonoBehaviour
     void Start()
     {
         _rb = GetComponent<Rigidbody2D>();
+
+    }
+    private void Awake()
+    {
+        _anim = GetComponent<Animator>();
+        sprite = GetComponentInChildren<SpriteRenderer>();
     }
 
     private void Update()
     {
+        if (IsGrounded) State = States.chill;
         OnGroundCheck();
         JumpLogic(); // реализует прыжок 
     }
@@ -36,6 +57,7 @@ public class Hero_Move : MonoBehaviour
 
     private void MovementLogic()
     {
+        if (IsGrounded) State = States.walk;
         Speed = 10f;
         moveVector.x = Input.GetAxis("Horizontal");
         if(Input.GetButton("Fire3"))
