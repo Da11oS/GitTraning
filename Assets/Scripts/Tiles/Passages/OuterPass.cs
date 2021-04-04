@@ -10,22 +10,32 @@ public class OuterPass : Pass
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        SwitchTile(collision.gameObject);
+        if (ParentTile.IsGoalAchived)
+        {
+            Level.Instance.ToBlackout("ToBlackoutStart");
+            StartCoroutine(SetPlayerPosition(Vector2.zero));
+        }
+        //SwitchTile(collision.gameObject);
     }
     override protected void SwitchTile(GameObject triger)
     {
-        if (ParentTile.IsGoalAchived)
-        {
-            if (ParentTile.NextTile == null)
-            {
-                Level.Instance.Instantiate();
-            }
-            else
-            {
-                ParentTile.NextTile.Enter();
-                //SetPlayerPostition
-            }
+        //if (ParentTile.IsGoalAchived)
+        //{
+        //    if (ParentTile.NextTile == null)
+        //    {
+        //        Level.Instance.Instantiate();
+        //    }
+        //    else
+        //    {
+        //        ParentTile.NextTile.Enter();
+        //        SetPosition();
+        //    }
 
-        }
+        //}
     }
+    override public void SetPosition()
+    {
+        StartCoroutine(SetPlayerPosition(Level.Instance.CurrentTile.Entrance.transform.position));
+    }
+
 }

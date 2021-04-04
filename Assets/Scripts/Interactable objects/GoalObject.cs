@@ -27,7 +27,8 @@ public class GoalObject : InteractableObject
         if(isActive && !IsActive)
         {
             IsActive = true;
-           // Level.Instance.CurrentTile.IsGoalAchived = true;
+
+            GetComponentInParent<Tile>().SetIsActive(true);
             _reactions.Reaction(_reactions.InteractionPhrase);
         }
 
