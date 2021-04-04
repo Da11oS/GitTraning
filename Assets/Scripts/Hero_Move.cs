@@ -45,7 +45,6 @@ public class Hero_Move : MonoBehaviour
 
     private void Update()
     {
-        if (IsGrounded) State = States.chill;
         OnGroundCheck();
         JumpLogic(); // реализует прыжок 
     }
@@ -57,7 +56,7 @@ public class Hero_Move : MonoBehaviour
 
     private void MovementLogic()
     {
-        if (IsGrounded) State = States.walk;
+        if (_rb.velocity!= Vector2.zero) _anim.Play("char_walk");
         Speed = 10f;
         moveVector.x = Input.GetAxis("Horizontal");
         if(Input.GetButton("Fire3"))
@@ -65,7 +64,6 @@ public class Hero_Move : MonoBehaviour
             Speed = 12f;
         }
         _rb.velocity = new Vector2(moveVector.x * Speed, _rb.velocity.y);
-        if (IsGrounded) State = States.chill;
     }
 
     private void JumpLogic()

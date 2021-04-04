@@ -26,7 +26,7 @@ public class Hero_attack : MonoBehaviour
     {
 		if (Input.GetMouseButtonDown(0))
 		{
-			animAttack.SetBool("Attack", true);
+			//animAttack.SetBool("Attack", true);
 			Hero_attack.Action(punch.position, punchRadius, 7, 3);
 		}
 	}
