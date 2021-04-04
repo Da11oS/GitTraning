@@ -2,12 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
-public class Lever : InteractableObject
+
+public class StatueHead : StorageObject
 {
-    [SerializeField]
-    protected UnityEvent OnActive;
-    [SerializeField]
-    protected List<GameObject> _targets;
     private Coroutine _onDestroyBlock;
     public override void Look()
     {
@@ -16,37 +13,15 @@ public class Lever : InteractableObject
     public override void Interact()
     {
         base.Interact();
-        IsActive = !IsActive;
-        if(IsActive)
+        if (IsActive)
         {
-            OnActive?.Invoke();
+            DisabledObject(gameObject);
         }
     }
-    public void EnabledObjects()
-    {
-        foreach(var target in _targets)
-        {
-            EnabledObject(target);
-        }
-    }
-    public void DesabledObjects()
-    {
-        foreach (var target in _targets)
-        {
-            DisabledObject(target);
-        }
-    }
-    private void EnabledObject(GameObject gameObject)
-    {
-        gameObject.SetActive(true);
 
-        var animation = gameObject.GetComponent<Animation>();
-        animation.Play();
-
-    }
     private void DisabledObject(GameObject gameObject)
     {
-        if(_onDestroyBlock == null)
+        if (_onDestroyBlock == null)
         {
             var animation = gameObject.GetComponent<Animation>();
             animation.Play();

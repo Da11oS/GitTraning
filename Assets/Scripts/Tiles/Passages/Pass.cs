@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.SceneManagement;
 abstract public class Pass : MonoBehaviour
 {
     protected Tile ParentTile;
@@ -31,7 +31,8 @@ abstract public class Pass : MonoBehaviour
             i++;
             if (i == 1)
             {
-                _player.transform.position = position;
+                // _player.transform.position = position;
+                SceneManager.LoadScene(Level.Instance.nextScene.name);
             }
             yield return new WaitForSeconds(1f);
         } while (i <= 1);

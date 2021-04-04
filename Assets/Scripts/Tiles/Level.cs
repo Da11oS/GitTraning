@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.SceneManagement;
 public class Level : MonoBehaviour
 {
     public Tile CurrentTile;
@@ -11,7 +11,7 @@ public class Level : MonoBehaviour
     public int MaxTileCount;
     public static int TileCount;
     static public Level Instance;
-
+    public Scene nextScene;
     [SerializeField]
     private GameObject _blackoutPanel;
     private Camera _camera;
@@ -33,7 +33,9 @@ public class Level : MonoBehaviour
     {
         TileCount = 1;
         _player = FindObjectOfType<Hero>();
+        CurrentTile = FindObjectOfType<Tile>();
         _player.transform.position = CurrentTile.Entrance.transform.position;
+        CurrentTile.Entrance.gameObject.SetActive(false);
     }
     public void ToBlackout()
     {

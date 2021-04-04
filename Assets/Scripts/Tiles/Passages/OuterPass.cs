@@ -14,19 +14,19 @@ public class OuterPass : Pass
     }
     override protected void SwitchTile(GameObject triger)
     {
-        if (ParentTile.IsGoalAchived)
-        {
-            if (ParentTile.NextTile == null)
-            {
-                Level.Instance.Instantiate();
-            }
-            else
-            {
-                ParentTile.NextTile.Enter();
-                SetPosition();
-            }
+        //if (ParentTile.IsGoalAchived)
+        //{
+        //    if (ParentTile.NextTile == null)
+        //    {
+        //        Level.Instance.Instantiate();
+        //    }
+        //    else
+        //    {
+        //        ParentTile.NextTile.Enter();
+        //        SetPosition();
+        //    }
 
-        }
+        //}
     }
     override public void SetPosition()
     {
