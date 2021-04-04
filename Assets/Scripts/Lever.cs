@@ -41,7 +41,7 @@ public class Lever : InteractableObject
         gameObject.SetActive(true);
 
         var animation = gameObject.GetComponent<Animation>();
-        animation.Play();
+        animation.Play(); 
 
     }
     private void DisabledObject(GameObject gameObject)
