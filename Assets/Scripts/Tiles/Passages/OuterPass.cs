@@ -23,9 +23,14 @@ public class OuterPass : Pass
             else
             {
                 ParentTile.NextTile.Enter();
-                //SetPlayerPostition
+                SetPosition();
             }
 
         }
     }
+    override public void SetPosition()
+    {
+        StartCoroutine(SetPlayerPosition(Level.Instance.CurrentTile.Entrance.transform.position));
+    }
+
 }

@@ -15,6 +15,7 @@ public class Level : MonoBehaviour
     [SerializeField]
     private GameObject _blackoutPanel;
     private Camera _camera;
+    private Hero _player;
     public void Awake()
     {
         BlackoutAnimation = _blackoutPanel.GetComponent<Animation>();
@@ -31,7 +32,8 @@ public class Level : MonoBehaviour
     void Start()
     {
         TileCount = 1;
-        //Player.Transform.position = CurrentTile.InnerPass.transform.position;
+        _player = FindObjectOfType<Hero>();
+        _player.transform.position = CurrentTile.Entrance.transform.position;
     }
     public void ToBlackout()
     {
@@ -56,4 +58,5 @@ public class Level : MonoBehaviour
         position.z = -40;
         _camera.transform.position = position;
     }
+
 }
