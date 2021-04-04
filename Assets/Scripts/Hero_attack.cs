@@ -25,7 +25,7 @@ public class Hero_attack : MonoBehaviour
     {
 		if (Input.GetMouseButtonDown(0))
 		{
-			Hero_attack.Action(punch.position, punchRadius, 7, 12);
+			Hero_attack.Action(punch.position, punchRadius, 7, 3);
 		}
 	}
 }
