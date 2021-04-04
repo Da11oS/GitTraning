@@ -11,7 +11,7 @@ public class Level : MonoBehaviour
     public int MaxTileCount;
     public static int TileCount;
     static public Level Instance;
-    public Scene nextScene;
+    public string NextSceneName;
     [SerializeField]
     private GameObject _blackoutPanel;
     private Camera _camera;
@@ -36,6 +36,15 @@ public class Level : MonoBehaviour
         CurrentTile = FindObjectOfType<Tile>();
         _player.transform.position = CurrentTile.Entrance.transform.position;
         CurrentTile.Entrance.gameObject.SetActive(false);
+        var position = CurrentTile.transform.position;
+        position.z = -40;
+        FindObjectOfType<Camera>().transform.position = position;
+        ToBlackout("ToBlackoutEnd");
+    }
+    public void ToBlackout(string name)
+    {
+        BlackoutAnimation.clip = BlackoutAnimation.GetClip(name);
+        ToBlackout();
     }
     public void ToBlackout()
     {

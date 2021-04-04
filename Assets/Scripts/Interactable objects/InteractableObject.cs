@@ -13,6 +13,7 @@ public class InteractableObject : MonoBehaviour,IObject
     protected CharacterReaction _reactions;
     protected Inventory _invetory => Inventory.Instance;
     protected DialogPanel _dialogPanel;
+    [SerializeField]
     protected Hero _hero;
     [SerializeField]
     protected float toPlayerDistanceLimit;

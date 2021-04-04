@@ -15,12 +15,17 @@ public class PromptObject : InteractableObject
         }
         else
         {
-            base.EnableRectMenu();
-            _menu.InteractionButton.gameObject.SetActive(false);
+            _menu = Instantiate(MenuPrefab, transform.position, MenuPrefab.transform.rotation);
+            _menu.Parent = this;
+            Collider.enabled = false;
+             
         }
+    }
+    override public void Look()
+    {
+        _reactions.Reaction(_reactions.InteractionPhrase);
     }
     override public void Interact()
     {
-        _reactions.Reaction(_reactions.InteractionPhrase);
     }
 }

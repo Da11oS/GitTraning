@@ -10,7 +10,12 @@ public class OuterPass : Pass
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        SwitchTile(collision.gameObject);
+        if (ParentTile.IsGoalAchived)
+        {
+            Level.Instance.ToBlackout("ToBlackoutStart");
+            StartCoroutine(SetPlayerPosition(Vector2.zero));
+        }
+        //SwitchTile(collision.gameObject);
     }
     override protected void SwitchTile(GameObject triger)
     {
