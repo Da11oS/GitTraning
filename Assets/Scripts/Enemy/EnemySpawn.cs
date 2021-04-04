@@ -57,7 +57,7 @@ public class EnemySpawn : MonoBehaviour
 
     private void SpawnEnemy()
     {
-        for (int i =0; i < _readyEnemy.Length; i++)
+        for (int i = 0; i < _readyEnemy.Length; i++)
         {
             if (_readyEnemy[i])
             {
@@ -91,5 +91,10 @@ public class EnemySpawn : MonoBehaviour
                 }
             }
         }
+    }
+
+    private IEnumerator Co_WaitForSeconds(float value)
+    {
+        yield return new WaitForSeconds(value);
     }
 }
