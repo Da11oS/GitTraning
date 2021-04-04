@@ -18,7 +18,7 @@ public class Inventory : MonoBehaviour
         {
             Instance = this;
         }
-        gameObject.SetActive(false);
+      //  gameObject.SetActive(false);
     }
     private void OnEnable()
     {

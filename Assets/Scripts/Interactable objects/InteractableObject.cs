@@ -13,20 +13,21 @@ public class InteractableObject : MonoBehaviour,IObject
     protected CharacterReaction _reactions;
     protected Inventory _invetory => Inventory.Instance;
     protected DialogPanel _dialogPanel;
+    [SerializeField]
     protected Hero _hero;
     [SerializeField]
     protected float toPlayerDistanceLimit;
     protected RaycastHit2D _ray;
-    private RectMenu _menu;
+    protected RectMenu _menu;
+    [SerializeField]
     protected int _layerMask;
 
     private void Awake()
     {
-        _layerMask = 1 << gameObject.layer;
-        _layerMask = ~_layerMask;
         Collider = GetComponent<Collider2D>();
         _reactions = GetComponent<CharacterReaction>();
         _hero = FindObjectOfType<Hero>();
+        _layerMask = (1 << _hero.gameObject.layer) | (1 << LayerMask.NameToLayer("Ground"));
     }
     virtual public void Look()
     {
@@ -48,7 +49,7 @@ public class InteractableObject : MonoBehaviour,IObject
         }
         else
         {
-            _reactions.Reaction("Не могу. Слишком далеко " + Vector2.Distance(_hero.transform.position, transform.position));
+            _reactions.Reaction("Не могу. Слишком далеко. ");
         }
     }
     virtual protected void EnableRectMenu()

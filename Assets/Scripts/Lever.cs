@@ -8,6 +8,7 @@ public class Lever : InteractableObject
     protected UnityEvent OnActive;
     [SerializeField]
     protected List<GameObject> _targets;
+    private Coroutine _onDestroyBlock;
     public override void Look()
     {
         base.Look();
@@ -40,15 +41,17 @@ public class Lever : InteractableObject
         gameObject.SetActive(true);
 
         var animation = gameObject.GetComponent<Animation>();
-        animation.Play();
+        animation.Play(); 
 
     }
     private void DisabledObject(GameObject gameObject)
     {
-        var animation = gameObject.GetComponent<Animation>();
-        animation.Play();
-
-        DestroyTarge(gameObject, animation.clip.length);
+        if(_onDestroyBlock == null)
+        {
+            var animation = gameObject.GetComponent<Animation>();
+            animation.Play();
+            _onDestroyBlock = StartCoroutine(DestroyTarge(gameObject, animation.clip.length));
+        }
     }
     private IEnumerator DestroyTarge(GameObject gameObject, float time)
     {
@@ -58,6 +61,7 @@ public class Lever : InteractableObject
             i++;
             yield return new WaitForSeconds(time);
         } while (i < 2);
+        _onDestroyBlock = null;
         Destroy(gameObject);
     }
 }
