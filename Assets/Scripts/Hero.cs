@@ -5,7 +5,6 @@ using UnityEngine;
 public class Hero : MonoBehaviour
 {
     [SerializeField]private float _helth = 5;
-    [SerializeField] private GameObject _exit;
     [SerializeField] private GameObject _restart;
 
     void Update()
@@ -17,7 +16,6 @@ public class Hero : MonoBehaviour
     }
     private void YouAreDead()
     {
-        _exit.SetActive(true);
         _restart.SetActive(true);
 
         Destroy(gameObject);
