@@ -10,35 +10,74 @@ public class InteractableObject : MonoBehaviour,IObject
     public Collider2D Collider;
     public List<AssetItem> Items;
     public bool IsActive;
-    [SerializeField]
+
     protected CharacterReaction _reactions;
     protected Inventory _invetory => Inventory.Instance;
     protected DialogPanel _dialogPanel;
-    private RectMenu _menu;
+    [SerializeField]
+    protected Hero _hero;
+    [SerializeField]
+    protected float toPlayerDistanceLimit;
+    protected RaycastHit2D _ray;
+    protected RectMenu _menu;
+    [SerializeField]
+    protected int _layerMask;
+
     private void Awake()
     {
         Collider = GetComponent<Collider2D>();
         _reactions = GetComponent<CharacterReaction>();
+        _hero = FindObjectOfType<Hero>();
+        _layerMask = (1 << _hero.gameObject.layer) | (1 << LayerMask.NameToLayer("Ground"));
     }
     virtual public void Look()
     {
-        //Íàâåðíîå íóæíî, ÷òî - òî ñêàçàòü
+        //ÃÃ Ã¢Ã¥Ã°Ã­Ã®Ã¥ Ã­Ã³Ã¦Ã­Ã®, Ã·Ã²Ã® - Ã²Ã® Ã±ÃªÃ Ã§Ã Ã²Ã¼
        // _reactions.Reaction(_reactions.LookingPhrase);
     }
     virtual public void Interact()
     {
 
-        //Íàâåðíîå íóæíî, ÷òî - òî ñêàçàòü
+        //ÃÃ Ã¢Ã¥Ã°Ã­Ã®Ã¥ Ã­Ã³Ã¦Ã­Ã®, Ã·Ã²Ã® - Ã²Ã® Ã±ÃªÃ Ã§Ã Ã²Ã¼
     }
 
     protected void OnMouseDown()
     {
-        EnableRectMenu();
+
+        _ray = GetToPlayerPlayerRaycast();
+        if (IsOnPlayer() && _ray.distance < toPlayerDistanceLimit)
+        {
+            EnableRectMenu();
+        }
+        else
+        {
+            _reactions.Reaction("ÃÃ¥ Ã¬Ã®Ã£Ã³. Ã‘Ã«Ã¨Ã¸ÃªÃ®Ã¬ Ã¤Ã Ã«Ã¥ÃªÃ®. ");
+        }
+
     }
     virtual protected void EnableRectMenu()
     {
+
         _menu = Instantiate(MenuPrefab, transform.position, MenuPrefab.transform.rotation);
         _menu.Parent = this;
         Collider.enabled = false;
     }
+    protected bool IsOnPlayer()
+    {
+        return IsNeedLayer(_ray, _hero.gameObject.layer);
+    }
+    private RaycastHit2D GetToPlayerPlayerRaycast()
+    {
+
+        var heading = _hero.transform.position - transform.position;
+        var toPlyerDistance = Vector2.Distance(_hero.transform.position, transform.position);
+        var toPlayerDirection = heading / heading.magnitude;
+        Debug.DrawRay(transform.position, toPlyerDistance * toPlayerDirection, Color.red);
+        return Physics2D.Raycast(transform.position, toPlayerDirection, toPlyerDistance, _layerMask);
+    }
+    private bool IsNeedLayer(RaycastHit2D raycast, int layer)
+    {
+        return raycast.collider.gameObject.layer == layer;
+    }
+
 }

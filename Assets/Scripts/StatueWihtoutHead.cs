@@ -9,7 +9,8 @@ public class StatueWihtoutHead : ItemInteractObject
         base.Interact();
         if(IsActive)
         {
-            Level.Instance.CurrentTile.IsGoalAchived = true;
+
+            Level.Instance.CurrentTile.SetIsActive(true);
         }
     }
 }
