@@ -8,7 +8,7 @@ public class MeleeEnemy : Enemy
 
     [SerializeField] protected float _forceJump;
 
-    private float _timer = 0;
+    private float _timerJump = 0;
 
     private bool _isDefense = false;
 
@@ -34,24 +34,26 @@ public class MeleeEnemy : Enemy
             if (_helth > _maxHelth * 0.5)
             {
                 _isDefense = false;
+                _moveSpeed *= -1;
             }
         }
         if (Random.Range(0,10) > 8 && _rb.velocity.y == 0)
         {
-            _timer = 0;
+            _timerJump = 0;
             Jump();
         }
     }
 
     private void Jump()
     {
-        _timer += Time.deltaTime * _durationJump;
-        _currentHigthJump = -Mathf.Pow(_timer, 2) + _forceJump;
+        _timerJump += Time.deltaTime * _durationJump;
+        _currentHigthJump = -Mathf.Pow(_timerJump, 2) + _forceJump;
         _rb.velocity = new Vector2(_rb.velocity.x, _currentHigthJump);
     }
 
     private void Defence()
     {
+        _moveSpeed *= -1;
         _helth += Time.deltaTime * _maxHelth * 0.02f; 
     }
 }

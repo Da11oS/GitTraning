@@ -6,29 +6,28 @@ using UnityEngine;
 abstract public class Enemy : MonoBehaviour
 {
     [SerializeField] protected float _moveSpeed = 0;
-    [SerializeField] protected float _helth = 100;
-    [SerializeField] protected float _maxHelth;
+    [SerializeField] public float _helth = 100;
+    [SerializeField] public float _maxHelth;
     [SerializeField] protected float _damage;
     [SerializeField] protected float _rangeAttack;
     [SerializeField] protected float _reloadAttackTime;
 
-    [SerializeField] private string _stateAnimatorAttack;
-    [SerializeField] private string _stateAnimatorStay;
-    [SerializeField] private string _stateAnimatorMove;
+    [SerializeField] protected string _stateAnimatorAttack;
+    [SerializeField] protected string _stateAnimatorStay;
+    [SerializeField] protected string _stateAnimatorMove;
 
     protected float _unicK; //Коеффициент разноса величин характеристик персонажа 
     protected float _distanceEnemyToPlayer;
     private float _timer = 0;
     private float _playerHelth = 100;
 
-    private bool _isMovingRight;
-
-    [SerializeField] protected Transform _point;
-    [SerializeField] protected Transform _player;
+    [SerializeField] public Transform _player;
 
     [SerializeField] protected Rigidbody2D _rb;
 
     [SerializeField] protected Animator _animator;
+
+    [SerializeField] private GameObject _enemySpawn;
 
     private void Start()
     {
@@ -52,7 +51,7 @@ abstract public class Enemy : MonoBehaviour
         }
     }
 
-    private void Move()
+    protected virtual void Move()
     {
         _distanceEnemyToPlayer = transform.position.x - _player.position.x;
         if (Mathf.Abs(_distanceEnemyToPlayer) > _rangeAttack)
@@ -66,7 +65,7 @@ abstract public class Enemy : MonoBehaviour
         }
     }
 
-    private void Attack()
+    virtual protected void Attack()
     {
         _animator.Play(_stateAnimatorAttack);
         _player.gameObject.GetComponent<Hero>().GetDamage(_damage);
@@ -78,12 +77,8 @@ abstract public class Enemy : MonoBehaviour
         _helth -= damage;
         if (_helth < 0)
         {
-            DeadEnemy();
+            _enemySpawn.GetComponent<EnemySpawn>().ReturnEnemyOnSpawn(gameObject.name);
         }
     }
 
-    private void DeadEnemy()
-    {
-        throw new NotImplementedException();
-    }
 }
