@@ -31,6 +31,11 @@ public class RectMenu : MonoBehaviour
         {
             LookButton.gameObject.SetActive(false);
         }
+
+        if(Parent is PromptObject)
+        {
+            InteractionButton.gameObject.SetActive(false);
+        }
         EmergensAnimation.Play();
         FexedPosition();
     }
@@ -44,8 +49,9 @@ public class RectMenu : MonoBehaviour
     private void OnDestroy()
     {
         Parent.Collider.enabled = true;
-        if(Inventory.Instance != null)
-            Inventory.Instance.gameObject.SetActive(false);
+
+        //if(Inventory.Instance != null)
+        //    Inventory.Instance.gameObject.SetActive(false);
     }
     private float GetToCursorDistance()
     {
