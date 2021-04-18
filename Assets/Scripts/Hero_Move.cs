@@ -4,8 +4,8 @@ using UnityEngine;
 
                public enum States
 {
-    walk,
-    chill
+    chill,
+    walk
 };
 public class Hero_Move : MonoBehaviour
 {
@@ -45,19 +45,18 @@ public class Hero_Move : MonoBehaviour
 
     private void Update()
     {
-        if (IsGrounded) State = States.chill;
         OnGroundCheck();
         JumpLogic(); // реализует прыжок 
     }
     void FixedUpdate()
     {
         MovementLogic(); //реализует перемещение по оси х, а также ускорение при нажатии левого shift
-
+      
     }
 
     private void MovementLogic()
     {
-        if (IsGrounded) State = States.walk;
+        if (_rb.velocity!= Vector2.zero) _anim.Play("char_walk");
         Speed = 10f;
         moveVector.x = Input.GetAxis("Horizontal");
         if(Input.GetButton("Fire3"))
